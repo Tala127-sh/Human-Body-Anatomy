@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduWell - Best Place to Learn Graphic Design</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            direction: ltr;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background:  #E85E5D;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            padding-left: 730px;
+            padding-right: 50px;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 25px;
+        }
+        .nav a:hover {
+            color: #6b2828;
+        }
+        
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+        }
+        .hero-text {
+            max-width: 50%;
+            text-align: left;
+        }
+        .hero-text h1 {
+            font-size: 40px;
+            color: #333;
+        }
+        .hero-text span {
+            color: #E85E5D;
+            font-weight: bold;
+        }
+        .hero-text p {
+            color: #555;
+            font-size: 18px;
+        }
+        .hero-text button {
+            position: absolute;
+            left: 45%;
+            top: 73%;
+            background:  #E85E5D;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .hero img {
+            width: 400px;
+            border-radius: 10px;
+        }
+
+ .wave-text {
+   
+   font-size: 22px;
+   font-weight: bold;
+   cursor: pointer;
+   color: #ffffff;
+   white-space: pre-line;
+}
+.wave-text span {
+   display: inline-block;
+   transition: transform 0.3s ease-in-out;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="header">
+        <div class="nav">
+            <a href="index.html">HOME</a>
+            <a href="try.html">Anatomy</a>
+            <a href="aboutus.html">ABOUT US</a>
+            <a href="contactus.html">CONTACT US</a>
+        </div>
+    </div>
+    
+    <div class="hero">
+        <div class="hero-text">
+            <h1>HUMAN BODY ANATOMY <span>Gastronintestinal Wall</span></h1>
+            <div class="wave-text" id="waveText">
+                <p>Explore the Human Body Layer by Layer ...</p>
+            </div>
+
+            <button onclick="window.location.href='try.html'">LETS START!</button>
+        </div>
+        <img src="logo.png" alt="Graphic Design Student">
+    </div>
+
+
+
+
+
+    <script>
+        const waveText = document.getElementById("waveText");
+        const letters = waveText.innerText.split("");
+        waveText.innerHTML = letters.map(letter => `<span>${letter}</span>`).join("");
+
+        waveText.innerHTML = letters.map(letter => 
+            letter === " " ? "&nbsp;" : `<span>${letter}</span>` // استخدام &nbsp; للمسافات
+        ).join("");
+
+
+        waveText.addEventListener("mouseenter", () => {
+            document.querySelectorAll(".wave-text span").forEach((span, index) => {
+                setTimeout(() => {
+                    span.style.transform = "translateY(-10px)";
+                }, index * 50);
+            });
+        });
+
+        waveText.addEventListener("mouseleave", () => {
+            document.querySelectorAll(".wave-text span").forEach((span, index) => {
+                setTimeout(() => {
+                    span.style.transform = "translateY(0)";
+                }, index * 50);
+            });
+        });
+
+           /* background: linear-gradient(to right, rgb(243, 177, 163), #E85E5D);*/
+
+    </script>
+
+
+
+
+</body>
+</html>

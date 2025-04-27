@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUMAN BODY ANATOMY</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      direction: ltr;
+      background-color: #f8f9fa;
+    }
+
+    .header {
+      background: #E85E5D;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-size: 20px;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 25px;
+    }
+
+    .nav a:hover {
+      color: #6b2828;
+    }
+
+    /* الأعضاء */
+    .stomach-container, .esophagus-container, .intestine-large-container, .intestine-small-container {
+      position: absolute;
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .stomach-container { 
+      top: 195px;
+       left: 58px; 
+       width: 250px; 
+    }
+    .esophagus-container {
+       top: 57px;
+        left: 160px;
+         width: 250px;
+         }
+    .intestine-large-container { 
+      top: 304px; 
+      left: 14px; 
+      width: 250px;
+     }
+    .intestine-small-container { 
+      top: 364px;
+       left: 53px; 
+       width: 250px;
+       }
+
+    .stomach-img, .esophagus-img, .intestine-large-img, .intestine-small-img {
+      width: 80%;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .esophagus-img {
+      width: 10.5%;
+    }
+
+    .intestine-large-img {
+      width: 105%;
+    }
+
+    /* قائمة الطبقات */
+    .layer-list {
+      flex: 1;
+      width: 200px;
+
+      position: absolute;
+      text-align: left;
+      left: 25%;
+      top: 100px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .tooltip-container {
+      position: relative;
+      
+      display: flex;
+      width: 200px;
+      align-items: center;
+    }
+
+    .tooltip-container button {
+      width: 160px; /* 👈 عرض موحد لكل الأزرار */
+      height: 30px; /* 👈 ارتفاع موحد */
+      margin: 5px 0;
+      padding: 10px 15px;
+      background-color: #E85E5D;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: left;
+    }
+
+    .tooltip-text {
+      visibility: hidden;
+      background-color: #333;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 5px;
+      position: absolute;
+      left: 80%;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-size: 14px;
+      z-index: 10;
+    }
+
+    .tooltip-container:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .layer-img-container {
+      position: absolute;
+      top: 100px;
+      left: 1115px;
+      width: 250px;
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .layer-img {
+      width: 700px;
+      height: auto;
+      display: block;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">HUMAN BODY ANATOMY</div>
+    <div class="nav">
+      <a href="index.html">HOME</a>
+      <a href="WW.html">ANATOMY</a>
+      <a href="aboutus.html">ABOUT US</a>
+      <a href="contactus.html">CONTACT US</a>
+    </div>
+  </div>
+
+  <!-- صور الأعضاء -->
+  <div class="stomach-container">
+    <img src="22.png" alt="المعدة" title="Stomach" class="stomach-img" onclick="toggleLayers('stomachList')">
+  </div>
+  
+
+  <div class="intestine-large-container">
+    <img src="44.png" alt="الأمعاء الغليظة" title="large intestine" class="intestine-large-img" onclick="toggleLayers('largeIntestineList')">
+  </div>
+
+  <div class="intestine-small-container">
+    <img src="33.png" alt="الأمعاء الدقيقة" title="small intestine" class="intestine-small-img" onclick="toggleLayers('smallIntestineList')">
+  </div>
+
+  <div class="esophagus-container">
+    <img src="11.png" alt="المرئ" title="esophagus" class="esophagus-img" onclick="toggleLayers('esophagusList')">
+  </div>
+
+  <!-- القوائم -->
+  <div class="layer-list" id="stomachList">
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('s1.png')">Mucosa</button>
+      <span class="tooltip-text">Inner lining with glands that secrete digestive enzymes and acids</span>
+    </div>
+    
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('s2.png')">Submucosa</button>
+      <span class="tooltip-text">Contains blood vessels and nerves to support stomach function.</span>
+    </div>
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('s3.png')">Muscularis</button>
+      <span class="tooltip-text">Thick muscle layers that churn and mix food.</span>
+    </div>
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('s4.png')">Subserosa</button>
+      <span class="tooltip-text">Connects muscle to the outer membrane of the stomach</span>
+    </div>
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('s5.png')">Serosa</button>
+      <span class="tooltip-text">Outermost layer that protects the stomach and holds it in place</span>
+    </div>
+  </div>
+
+  <div class="layer-list" id="largeIntestineList">
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('l.one.png')">Epithelium</button>
+      <span class="tooltip-text">Absorbs water and secretes mucus</span>
+    </div>
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('l.two.png')">Lamina Propria</button>
+      <span class="tooltip-text">Contains vessels and immune cells.</span>
+    </div>
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('l.three.png')">Muscularis Mucosae</button>
+      <span class="tooltip-text"> Moves the mucosal layer slightly.</span>
+    </div>
+    <div class="tooltip-container">
+        <button onclick="toggleLayer('l.four.png')">Submucosa </button>
+        <span class="tooltip-text">Has nerves and vessels.</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('l.five.png')">Circular Muscle </button>
+        <span class="tooltip-text">Contracts to push waste along</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('l.six.png')">Longitudinal Muscle  </button>
+        <span class="tooltip-text">Helps move fecal matter forward.</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('l.seven.png')">Myenteric Plexus </button>
+        <span class="tooltip-text">Controls the movement of the intestine.</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('l.eight.png')">Subserosa </button>
+        <span class="tooltip-text">Connects muscle to outer layers.</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('l.nine.png')">Serosa </button>
+        <span class="tooltip-text">Outermost layer that protects the colon.</span>
+      </div>
+    <!-- كمل باقي الطبقات بنفس الطريقة -->
+  </div>
+
+  <div class="layer-list" id="smallIntestineList">
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('layer1.png')">Mucosa</button>
+      <span class="tooltip-text">Contains villi for absorbing nutrients</span>
+    </div>
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('layer2.png')">Submucosa</button>
+      <span class="tooltip-text">Supports the mucosa with vessels and glands</span>
+    </div>
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('layer3.png')">Circular Muscle</button>
+      <span class="tooltip-text">Mixes and moves the intestinal contents</span>
+    </div>
+    <div class="tooltip-container">
+        <button onclick="toggleLayer('layer4.png')">Longitudinal muscle </button>
+        <span class="tooltip-text">Pushes food forward through the intestine</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('layer5.png')">Serosa</button>
+        <span class="tooltip-text">A protective outer layer</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('layer6.png')">Plica</button>
+        <span class="tooltip-text">Increase surface area for absorption.</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('layer7.png')">Submucosal Glands</button>
+        <span class="tooltip-text">Produce digestive secretions.</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('layer9.png')">Mesentery</button>
+        <span class="tooltip-text">A membrane that attaches the intestines to the abdominal wall.</span>
+      </div>
+    <!-- كمل الباقي بنفس النمط -->
+  </div>
+
+  <div class="layer-list" id="esophagusList">
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('d.layer1.png')">Lumen</button>
+      <span class="tooltip-text">The inner hollow space where food passes through the digestive tract.</span>
+    </div>
+    <div class="tooltip-container">
+      <button onclick="toggleLayer('d.layer2.png')">Epithelium</button>
+      <span class="tooltip-text">A thin lining that absorbs nutrients and protects inner tissues.</span>
+    </div>
+    <div class="tooltip-container">
+        <button onclick="toggleLayer('d.layer3.png')">Lamina Propria</button>
+        <span class="tooltip-text">Connective tissue with vessels that support the epithelium</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('d.layer4.png')">Muscularis Mucosae</button>
+        <span class="tooltip-text">Thin muscle layer that moves <br>the mucosa slightly to aid absorption</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('d.layer5.png')">Submucosa</button>
+        <span class="tooltip-text">A supportive layer containing<br> nerves, blood vessels, and glands.</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('d.layer6.png')">Submucosal Plexus</button>
+        <span class="tooltip-text">A nerve network that controls <br>secretion and blood flow</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('d.layer7.png')">Circular Muscle</button>
+        <span class="tooltip-text">Contracts to mix food and push it forward.</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('d.layer8.png')">Longitudinal Muscle</button>
+        <span class="tooltip-text"> Helps move food along the digestive tract.</span>
+      </div>
+      <div class="tooltip-container">
+        <button onclick="toggleLayer('d.layer9.png')">Serosa</button>
+        <span class="tooltip-text">A smooth outer covering that reduces friction with other organs.</span>
+      </div>
+    <!-- كمل الباقي بنفس النمط -->
+  </div>
+
+  <!-- عرض الصور -->
+  <div class="layer-img-container" id="imageContainer"></div>
+
+  <!-- سكربت -->
+  <script>
+    let currentOpenListId = null;
+
+    function toggleLayers(listId) {
+      const container = document.getElementById("imageContainer");
+
+      if (currentOpenListId === listId) {
+        document.getElementById(listId).style.display = "none";
+        container.innerHTML = "";
+        currentOpenListId = null;
+      } else {
+        document.querySelectorAll('.layer-list').forEach(list => list.style.display = 'none');
+        container.innerHTML = "";
+        const newList = document.getElementById(listId);
+        newList.style.display = "flex";
+        currentOpenListId = listId;
+      }
+    }
+
+    function toggleLayer(imgSrc) {
+      const container = document.getElementById("imageContainer");
+
+      const existingImg = Array.from(container.children).find(img => img.src.includes(imgSrc));
+
+      if (existingImg) {
+        container.removeChild(existingImg);
+      } else {
+        const img = document.createElement("img");
+        img.src = imgSrc;
+        img.className = "layer-img";
+        container.appendChild(img);
+      }
+    }
+  </script>
+
+</body>
+</html>
